@@ -29,4 +29,18 @@ if (hum !== GU && hum !== CHOKI && hum !== PA) {
             comHandName = "パー";
             break;
     }
+
+    // 結果の判定
+    let msgResult = "";
+    if (hum === com) {
+        msgResult = "結果はあいこでした。";
+    } else  if ((com === GU && hum === PA) || (com === CHOKI && hum === GU) || (com === PA && hum ===CHOKI)) {
+        msgResult = "勝ちました。";
+    } else {
+        msgResult = "負けました。";
+    }
+
+    // 最終的な結果の表示
+    msgResult = msgResult + "コンピューターの出した手は「" + comHandName + "」でした";
+    alert(msgResult)
 }
