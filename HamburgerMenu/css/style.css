@@ -1,0 +1,88 @@
+@charset "UTF-8";
+*{
+  box-sizing: border-box;
+}
+
+.hamburger-nav {
+  margin-top: 1em;
+  width: 30px;
+  text-align: left;
+}
+
+.nav-list {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100vh;
+    list-style: none;
+    margin: 0;
+    padding: 60px 0 30px;
+    background:  rgba(125, 125, 125, 0.95);
+    text-align: center;
+  }
+
+  .nav-list > li a {
+    display: block;
+    padding: 10px 1em;
+    text-decoration: none;
+    color: white;
+  }
+
+  .nav-list.open {
+    display: block;
+    z-index: -1;
+    animation: showAni .5s ease 0s 1 normal;
+  }
+  @keyframes showAni {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 100;
+    }
+  }
+  .nav-list.close {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    animation: hideAni .5s ease 0s 1 normal;
+  }
+  @keyframes hideAni {
+    0% {
+      opacity: 1;
+      visibility: visible;
+      z-index: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: visible;
+      z-index: -1;
+    }
+  }
+  .nav-toggle {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+  }
+
+.nav-toggle.close::before, .nav-toggle.open::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+}
+.nav-toggle.close::before {
+  content: '\f0c9';
+}
+.nav-toggle.open::before {
+  content: '\f00d';
+}
+button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  appearance: none;
+  margin: 0 0 0 1.3rem;
+}
